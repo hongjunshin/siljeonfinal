@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="User">
+
+	<select id="getUser" resultType="user">
+		select userid, username from member
+		where userid=#{userid} and password=#{password}
+	</select>
+	
+	
+	
+	<insert id="insertUser">
+		insert into member (username, userid, password)
+		values
+		(#{username}, #{userid},#{password})
+	</insert>
+
+	
+	<delete id="deleteUser">
+		delete from member where userid=#{userid}
+	</delete>
+	
+	<select id="getUserName" resultType="user">
+		select username from member
+		where seq=#{seq}
+	</select>
+	
+	<select id="getUserList" resultType="user">
+		select * from member order by seq desc
+	</select>
+	
+	<select id="getname" resultType="user">
+		select username from member where userid=#{userid}
+	</select>
+	
+</mapper>
